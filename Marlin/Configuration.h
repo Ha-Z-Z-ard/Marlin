@@ -507,9 +507,9 @@
   // ANET A8 Standard Extruder at 195 Degree Celsius and 100% Fan thermal tapr insulation
   //Part Cooling: Hesine M-505, Anet A8 - Center Nozzle Fan by Arjjck-(http://www.thingiverse.com/thing:1620630)
   //(measured after M106 S255 with M303 E0 S195 C16)
-  #define DEFAULT_Kp 19.16
-  #define DEFAULT_Ki 0.97
-  #define DEFAULT_Kd 94.23
+  #define DEFAULT_Kp 27.58 
+  #define DEFAULT_Ki 1.91
+  #define DEFAULT_Kd 99.47
 
 #endif // PIDTEMP
 
