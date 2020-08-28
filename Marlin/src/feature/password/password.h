@@ -19,18 +19,39 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
+#pragma once
 
-#include "../inc/MarlinConfigPre.h"
+#include "../../lcd/ultralcd.h"
 
-#if ENABLED(BINARY_FILE_TRANSFER)
+class Password {
+public:
+  static bool is_set, is_locked;
+  static uint32_t value, value_entry;
 
-#include "../sd/cardreader.h"
-#include "binary_protocol.h"
+  Password() { is_locked = false; }
 
-char* SDFileTransferProtocol::Packet::Open::data = nullptr;
-size_t SDFileTransferProtocol::data_waiting, SDFileTransferProtocol::transfer_timeout, SDFileTransferProtocol::idle_timeout;
-bool SDFileTransferProtocol::transfer_active, SDFileTransferProtocol::dummy_transfer, SDFileTransferProtocol::compression;
+  static void lock_machine();
 
-BinaryStream binaryStream[NUM_SERIAL];
+  #if HAS_LCD_MENU
+    static void access_menu_password();
+    static void authentication_check();
+    static void authentication_done();
+    static void media_gatekeeper();
 
-#endif // BINARY_FILE_TRANSFER
+    private:
+    static void authenticate_user(const screenFunc_t, const screenFunc_t);
+    static void menu_password();
+    static void menu_password_entry();
+    static void screen_password_entry();
+    static void screen_set_password();
+    static void start_over();
+
+    static void digit_entered();
+    static void set_password_done();
+    static void menu_password_report();
+
+    static void remove_password();
+  #endif
+};
+
+extern Password password;
