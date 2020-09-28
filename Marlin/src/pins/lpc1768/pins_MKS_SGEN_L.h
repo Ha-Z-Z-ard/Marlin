@@ -210,20 +210,20 @@
   #endif
 #else
   #ifndef HEATER_1_PIN
-    #define HEATER_1_PIN                   P2_06
+    //#define HEATER_1_PIN                   P2_06
   #endif
 #endif
 #ifndef FAN_PIN
-  #define FAN_PIN                          P2_04
+  //#define FAN_PIN                          P2_04
 #endif
 
 //
 // Misc. Functions
 //
-#define LED_PIN                            P1_18  // Used as a status indicator
-#define LED2_PIN                           P1_19
-#define LED3_PIN                           P1_20
-#define LED4_PIN                           P1_21
+//#define LED_PIN                            P1_18  // Used as a status indicator
+//#define LED2_PIN                           P1_19
+//#define LED3_PIN                           P1_20
+//#define LED4_PIN                           P1_21
 
 /**
  *                _____                                            _____
